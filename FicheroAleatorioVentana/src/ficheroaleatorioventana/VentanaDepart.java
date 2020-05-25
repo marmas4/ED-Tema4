@@ -95,8 +95,10 @@ public VentanaDepart(JFrame f )
 
 public void actionPerformed(ActionEvent e) 
 {   int dep, confirm;
+//    La línea siguiente queda eliminada por el atributo
 //    String existedepart = existedepart;
-        String PRUEBA = "PRUEBA";
+
+        String PRUEBA="PRUEBA";
 	if (e.getSource() == balta) { 		
             altadepart(PRUEBA); 
 	    }
@@ -252,7 +254,12 @@ public void actionPerformed(ActionEvent e)
     static final String NOEXISTEDEPART = "DEPARTAMENTO NO EXISTE.";
 
 
-public  void verporconsola() throws IOException {     
+public  void verporconsola() throws IOException {  
+    
+  claseAnidada ej = new claseAnidada();
+  ej.entrada();
+  System.out.println("LLamo a Salida: "+ ej.salida(10));
+
   String  nom="",loc=""; int dep=0; long pos;
   File fichero = new File("AleatorioDep.dat");
   RandomAccessFile file = new RandomAccessFile(fichero, "r");
