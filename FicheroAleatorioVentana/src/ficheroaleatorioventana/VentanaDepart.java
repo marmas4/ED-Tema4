@@ -96,16 +96,21 @@ public VentanaDepart(JFrame f )
 public void actionPerformed(ActionEvent e) 
 {   int dep, confirm;
 //    String existedepart = existedepart;
-	if (e.getSource() == balta) { 		altadepart(); 
+        String PRUEBA = "PRUEBA";
+	if (e.getSource() == balta) { 		
+            altadepart(PRUEBA); 
 	    }
 		   
-	if (e.getSource() == consu) { 		consuldepart(); 
+	if (e.getSource() == consu) { 		
+            consuldepart(PRUEBA); 
 	      
 	    }
 		  
-	if (e.getSource() == borra) { 		borradepart(); 
+	if (e.getSource() == borra) { 		
+            borradepart(PRUEBA); 
 	    }
-	if (e.getSource() == modif) { 		modifdepart(); 
+	if (e.getSource() == modif) { 		
+            modifdepart(PRUEBA); 
 	    }
 	if (e.getSource() == fin) { //SE PULSA EL BOTON salir 	
 		 System.exit(0);	
@@ -127,7 +132,7 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-    private void modifdepart() throws HeadlessException {
+    public int modifdepart(String par0) throws HeadlessException {
         int dep;
         int confirm;
         //SE PULSA EL BOTON  modificar
@@ -156,9 +161,10 @@ public void actionPerformed(ActionEvent e)
         {mensaje.setText(depar_error);}
         catch (IOException ex2)
         {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (MODIFICAR)");}
+        return 4;
     }
 
-    private void borradepart() throws HeadlessException {
+    public int borradepart(String par0) throws HeadlessException {
         int dep;
         int confirm;
         //SE PULSA EL BOTON  borrar
@@ -189,9 +195,10 @@ public void actionPerformed(ActionEvent e)
         {mensaje.setText(depar_error);}
         catch (IOException ex2)
         {mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (BORRAR)");}
+        return 3;
     }
 
-    private void consuldepart() {
+    public int consuldepart(String par0) {
         int dep;
         //SE PULSA EL BOTON  consultar
         mensaje.setText(" has pulsado el boton alta");
@@ -211,9 +218,10 @@ public void actionPerformed(ActionEvent e)
         {mensaje.setText(depar_error);}
         catch (IOException ex2)
         {mensaje.setText(" ERRORRR EN EL FICHERO. Fichero no existe. (ALTA)");}
+        return 2;
     }
 
-    private void altadepart() {
+    public int altadepart(String par0) {
         int dep;
         //SE PULSA EL BOTON alta
         mensaje.setText(" has pulsado el boton alta");
@@ -237,6 +245,7 @@ public void actionPerformed(ActionEvent e)
             
             
         }
+        return 1;
     }
     private String depar_error = "DEPARTAMENTO ERRÓNEO";
     private String existedepart = "DEPARTAMENTO EXISTE.";
